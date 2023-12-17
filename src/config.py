@@ -33,32 +33,32 @@ server = f"postgresql://{user}:{password}@{host}:{port}/{database}"
 
 queries = [ 
 
-    """SELECT "VendorID", COUNT(*)
-    FROM "BebraDB" GROUP BY 1;""",
+    f"""SELECT "VendorID", COUNT(*)
+    FROM "{database}" GROUP BY 1;""",
 
-    """SELECT "passenger_count", AVG("total_amount")
-    FROM "BebraDB" GROUP BY 1;""",
+    f"""SELECT "passenger_count", AVG("total_amount")
+    FROM "{database}" GROUP BY 1;""",
 
-    """SELECT "passenger_count", EXTRACT(year FROM "tpep_pickup_datetime"), COUNT(*)
-    FROM "BebraDB" GROUP BY 1, 2;""",
+    f"""SELECT "passenger_count", EXTRACT(year FROM "tpep_pickup_datetime"), COUNT(*)
+    FROM "{database}" GROUP BY 1, 2;""",
 
-    """SELECT "passenger_count", EXTRACT(year FROM "tpep_pickup_datetime"), ROUND("trip_distance"), COUNT(*)
-    FROM "BebraDB" GROUP BY 1, 2, 3 ORDER BY 2, 4 DESC;""",
+    f"""SELECT "passenger_count", EXTRACT(year FROM "tpep_pickup_datetime"), ROUND("trip_distance"), COUNT(*)
+    FROM "{database}" GROUP BY 1, 2, 3 ORDER BY 2, 4 DESC;""",
 
 ]
 
 sqlQueries = [
-    """SELECT "VendorID", COUNT(*)
-    FROM "BebraDB" GROUP BY 1;""",
+    f"""SELECT "VendorID", COUNT(*)
+    FROM "{database}" GROUP BY 1;""",
 
-    """SELECT "passenger_count", AVG("total_amount")
-    FROM "BebraDB" GROUP BY 1;""",
+    f"""SELECT "passenger_count", AVG("total_amount")
+    FROM "{database}" GROUP BY 1;""",
 
-    """SELECT "passenger_count", STRFTIME('%Y', "tpep_pickup_datetime"), COUNT(*)
-    FROM "BebraDB" GROUP BY 1, 2;""",
+    f"""SELECT "passenger_count", STRFTIME('%Y', "tpep_pickup_datetime"), COUNT(*)
+    FROM "{database}" GROUP BY 1, 2;""",
 
-    """SELECT "passenger_count", STRFTIME('%Y', "tpep_pickup_datetime"), ROUND("trip_distance"), COUNT(*)
-    FROM "BebraDB" GROUP BY 1, 2, 3 ORDER BY 2, 4 DESC;""",
+    f"""SELECT "passenger_count", STRFTIME('%Y', "tpep_pickup_datetime"), ROUND("trip_distance"), COUNT(*)
+    FROM "{database}" GROUP BY 1, 2, 3 ORDER BY 2, 4 DESC;""",
 
 ]
 

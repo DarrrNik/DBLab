@@ -17,5 +17,6 @@ def try_sqlalchemy():
         print("Everything is bad, nothing works in \"try_sqlalchemy\".", er)
     finally:
         conn.close()
+        engine.dispose()
         return countTimes
 
